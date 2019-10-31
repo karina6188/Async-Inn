@@ -33,6 +33,8 @@ App Execution
 
 ## Change Log
 
-1.1: Set up the program and README. - 2019 Oct 31
+1.1: Set up the app and README. - 2019 Oct 31
 
-1.2: 
+1.2: Add a View to show index page. - 2019 Oct 31
+
+1.3: 
