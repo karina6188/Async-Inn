@@ -37,4 +37,6 @@ App Execution
 
 1.2: Add a View to show index page. - 2019 Oct 31
 
-1.3: 
+1.3: Set up database. - 2019 Oct 31
+
+1.4: 

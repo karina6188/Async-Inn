@@ -2,7 +2,7 @@
 using System;
 
 /// <summary>
-/// Summary description for Class1
+/// Summary description for HomeController
 /// </summary>
 public class HomeController : Controller
 {
