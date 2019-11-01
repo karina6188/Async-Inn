@@ -39,4 +39,6 @@ App Execution
 
 1.3: Set up database. - 2019 Oct 31
 
-1.4: 
+1.4: Set up data tables, navigation properties, and composite keys. - 2019 Oct 31
+
+1.5: Add CSS stylesheet. - 2019 Oct 31
