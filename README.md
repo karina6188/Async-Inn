@@ -28,8 +28,8 @@ Open the program using Visual Studio and click "Start" button to run this progra
 ## Visuals
 
 App Execution
-![Alt whiteboarding capture](/captures/)
-![Alt whiteboarding capture](/captures/)
+![Alt capture](/captures/)
+![Alt capture](/captures/)
 
 ## Change Log
 
