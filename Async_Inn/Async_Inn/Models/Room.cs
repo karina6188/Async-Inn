@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// Summary description for Room
-/// </summary>
-public class Room
+namespace Async_Inn.Models
 {
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public int Layout { get; set; }
-
-    // Nav Props
-    public ICollection<HotelRoom> HotelRoom { get; set; }
-    public ICollection<RoomAmenities> RoomAmenities { get; set; }
-
-    public enum RoomLayout
+    /// <summary>
+    /// Summary description for Room
+    /// </summary>
+    public class Room
     {
-        Studio = 0,
-        OneBedroom,
-        TwoBedroom
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Layout { get; set; }
+
+        // Nav Props
+        public ICollection<HotelRoom> HotelRoom { get; set; }
+        public ICollection<RoomAmenities> RoomAmenities { get; set; }
+
+        public enum RoomLayout
+        {
+            Studio = 0,
+            OneBedroom,
+            TwoBedroom
+        }
     }
 }
+

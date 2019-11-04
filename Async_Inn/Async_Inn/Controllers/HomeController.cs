@@ -1,13 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-/// <summary>
-/// Summary description for HomeController
-/// </summary>
-public class HomeController : Controller
+
+namespace Async_Inn.Controllers
 {
-	public IActionResult Index()
-	{
-        return View();
-	}
+    /// <summary>
+    /// Summary description for HomeController
+    /// </summary> 
+
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
 }

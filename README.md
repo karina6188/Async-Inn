@@ -41,3 +41,5 @@ App Execution
 1.4: Set up data tables, navigation properties, and composite keys. - 2019 Oct 31
 
 1.5: Add CSS stylesheet. - 2019 Oct 31
+
+1.6: Add HotelsController to add data to Hotel data table. - 2019 Nov 04
