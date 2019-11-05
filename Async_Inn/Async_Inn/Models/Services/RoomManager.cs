@@ -39,6 +39,7 @@ namespace Async_Inn.Models.Services
         {
             throw new NotImplementedException();
         }
+
         public Task UpdateRoom(Room room)
         {
             throw new NotImplementedException();

@@ -49,7 +49,7 @@ namespace Async_Inn.Controllers
         // GET: RoomAmenities/Create
         public IActionResult Create()
         {
-            ViewData["AmenitiesID"] = new SelectList(_context.Amenities, "ID", "ID");
+            ViewData["AmenitiesID"] = new SelectList(_context.Amenities, "ID", "Name");
             ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name");
             return View();
         }
