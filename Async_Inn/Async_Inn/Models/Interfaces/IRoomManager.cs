@@ -11,7 +11,7 @@ namespace Async_Inn.Models.Interfaces
         Task CreateRoom(Room room);
 
         // Read
-        Task GetRoom(int id);
+        Task<Room> GetRoom(int id);
 
         // Update
         Task UpdateRoom(Room room);

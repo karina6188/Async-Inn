@@ -11,7 +11,7 @@ namespace Async_Inn.Models.Interfaces
         Task CreateAmenities(Amenities amenities);
 
         // Read
-        Task GetAmenities(int id);
+        Task<Amenities> GetAmenities(int id);
 
         // Update
         Task UpdateAmenities(Amenities amenities);
