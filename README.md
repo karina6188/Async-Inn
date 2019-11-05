@@ -42,6 +42,6 @@ App Execution
 
 1.5: Add CSS stylesheet. - 2019 Oct 31
 
-1.6: Add HotelsController to add data to Hotel data table. - 2019 Nov 04
+1.6: Add controllers for all data tables. - 2019 Nov 04
 
-1.7: Add seeded data. - 2019 Nov 04
+1.7: Add seeded data for hotels, rooms, and amenities. - 2019 Nov 04

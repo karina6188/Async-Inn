@@ -74,37 +74,37 @@ namespace Async_Inn.Data
                 {
                     ID = 1,
                     Name = "Coronado Sea Breeze",
-                    Layout = RoomLayout.Studio
+                    Layout = Layout.Studio
                 },
                 new Room
                 {
                     ID = 2,
                     Name = "Nightly New York",
-                    Layout = RoomLayout.OneBedroom
+                    Layout = Layout.OneBedroom
                 },
                 new Room
                 {
                     ID = 3,
                     Name = "Luxury Indulgence",
-                    Layout = RoomLayout.TwoBedroom
+                    Layout = Layout.TwoBedroom
                 },
                 new Room
                 {
                     ID = 4,
                     Name = "Misty Bay View",
-                    Layout = RoomLayout.Studio
+                    Layout = Layout.Studio
                 },
                 new Room
                 {
                     ID = 5,
                     Name = "Pacific Beach House",
-                    Layout = RoomLayout.OneBedroom
+                    Layout = Layout.OneBedroom
                 },
                 new Room
                 {
                     ID = 6,
                     Name = "Chicago Cityscape",
-                    Layout = RoomLayout.TwoBedroom
+                    Layout = Layout.TwoBedroom
                 }
                 );
             modelBuilder.Entity<Amenities>().HasData(
