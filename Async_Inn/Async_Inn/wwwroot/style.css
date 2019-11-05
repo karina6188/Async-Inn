@@ -20,17 +20,16 @@ h1 {
 h5 {
     font-family: 'Neuton', serif;
     color: black;
+}
+
+div, h4, h5, hr, p {
     margin: 10px;
 }
 
-p {
-    margin: 10px;
-}
 table {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 10px 0px 0px 10px;
-    min-width: 1000px;
-    width: auto;
+    width: 960px;
 }
 
 thead {
