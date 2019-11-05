@@ -3,25 +3,36 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<!DOCTYPE html>
 
-<h1>Edit</h1>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Hotel</title>
+    <link href="~/reset.css" rel="stylesheet">
+    <link href="~/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Neuton|Noto+Serif|Source+Serif+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Edit</h1>
 
-<h4>RoomAmenities</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AmenitiesID" />
-            <input type="hidden" asp-for="RoomID" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>RoomAmenities</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="AmenitiesID" />
+                <input type="hidden" asp-for="RoomID" />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+    </body>
+</html>
