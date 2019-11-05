@@ -18,7 +18,7 @@ namespace Async_Inn.Models
         [Required]
         public Layout Layout { get; set; }
 
-        // Nav Props
+        // Navigation Properties
         public ICollection<HotelRoom> HotelRoom { get; set; }
         public ICollection<RoomAmenities> RoomAmenities { get; set; }
 

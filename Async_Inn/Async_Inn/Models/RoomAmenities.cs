@@ -10,7 +10,7 @@ namespace Async_Inn.Models
         public int AmenitiesID { get; set; }
         public int RoomID { get; set; }
 
-        // Nav Props
+        // Navigation Properties
         public Amenities Amenities { get; set; }
         public Room Room { get; set; }
     }

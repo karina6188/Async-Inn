@@ -11,8 +11,10 @@ namespace Async_Inn.Models
     {
         public int ID { get; set; }
         [Required]
+        [Display(Name = "Hotel Name")]
         public string Name { get; set; }
         [Required]
+        [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
         [Required]
         public string City { get; set; }
@@ -21,7 +23,7 @@ namespace Async_Inn.Models
         [Required]
         public string Phone { get; set; }
 
-        // Nav Props
+        // Navigation Properties
         public ICollection<HotelRoom> HotelRoom { get; set; }
     }
 }
