@@ -3,14 +3,16 @@ using Async_Inn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncDbContext))]
-    partial class AsyncDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191104194259_add")]
+    partial class add
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,33 +33,6 @@ namespace Async_Inn.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Amenities");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Name = "Coffee Machine"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "Wet Bar"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Name = "Microwave"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Name = "In-Room Spa"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Name = "Fireplace"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.Hotel", b =>
@@ -90,53 +65,6 @@ namespace Async_Inn.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Hotel");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            City = "Coronado",
-                            Name = "Curio del Coronado",
-                            Phone = "(619)435-6611",
-                            State = "CA",
-                            StreetAddress = "1500 Orange Ave"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            City = "Santa Monica",
-                            Name = "Shutters on the Beach",
-                            Phone = "(310)458-0030",
-                            State = "CA",
-                            StreetAddress = "1 Pico Blvd"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            City = "New York",
-                            Name = "Four Seasons",
-                            Phone = "(212)758-5700",
-                            State = "NY",
-                            StreetAddress = "57 E 57th St"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            City = "Chicago",
-                            Name = "The Langham",
-                            Phone = "(312)923-9988",
-                            State = "IL",
-                            StreetAddress = "330 N Wabash Ave"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            City = "San Francisco",
-                            Name = "Fairmont Heritage",
-                            Phone = "(415)268-9900",
-                            State = "CA",
-                            StreetAddress = "900 North Point St"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.HotelRoom", b =>
@@ -174,50 +102,11 @@ namespace Async_Inn.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Room");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Layout = 0,
-                            Name = "Coronado Sea Breeze"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Layout = 1,
-                            Name = "Nightly New York"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Layout = 2,
-                            Name = "Luxury Indulgence"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Layout = 0,
-                            Name = "Misty Bay View"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Layout = 1,
-                            Name = "Pacific Beach House"
-                        },
-                        new
-                        {
-                            ID = 6,
-                            Layout = 2,
-                            Name = "Chicago Cityscape"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.RoomAmenities", b =>

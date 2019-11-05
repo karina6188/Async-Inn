@@ -1,18 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-/// <summary>
-/// Summary description for Hotel
-/// </summary>
-public class Hotel
+namespace Async_Inn.Models
 {
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public string StreetAddress { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public string Phone { get; set; }
+    /// <summary>
+    /// Summary description for Hotel
+    /// </summary>
+    public class Hotel
+    {
+        public int ID { get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string StreetAddress { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string State { get; set; }
+        [Required]
+        public string Phone { get; set; }
 
-    // Nav Props
-    public ICollection<HotelRoom> HotelRoom { get; set; }
+        // Nav Props
+        public ICollection<HotelRoom> HotelRoom { get; set; }
+    }
 }
