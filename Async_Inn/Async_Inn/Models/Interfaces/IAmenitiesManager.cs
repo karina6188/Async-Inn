@@ -8,18 +8,18 @@ namespace Async_Inn.Models.Interfaces
     public interface IAmenitiesManager
     {        
         // Create
-        Task CreateAmenities(Amenities amenities);
+        Task CreateAmenitiesAsync(Amenities amenities);
 
         // Read
-        Task<Amenities> GetAmenities(int id);
+        Task<Amenities> GetAmenitiesAsync(int id);
 
         // Update
-        Task UpdateAmenities(Amenities amenities);
+        Task UpdateAmenitiesAsync(Amenities amenities);
 
         // Delete
-        Task DeleteAmenities(int id);
+        Task DeleteAmenitiesAsync(int id);
 
-        Task<List<Amenities>> GetAmenities();
+        Task<List<Amenities>> GetAmenitiesAsync();
 
         IEnumerable<RoomAmenities> GetRoomAmenitiesForRoom(int amenitiesID);
     }

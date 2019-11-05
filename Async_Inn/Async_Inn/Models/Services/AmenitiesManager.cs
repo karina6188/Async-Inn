@@ -17,25 +17,25 @@ namespace Async_Inn.Models.Services
             _context = context;
         }
 
-        public async Task CreateAmenities(Amenities amenities)
+        public async Task CreateAmenitiesAsync(Amenities amenities)
         {
             _context.Amenities.Add(amenities);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAmenities(int id)
+        public async Task DeleteAmenitiesAsync(int id)
         {
-            Amenities amenities = await GetAmenities(id);
+            Amenities amenities = await GetAmenitiesAsync(id);
             _context.Amenities.Remove(amenities);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Amenities> GetAmenities(int id)
+        public async Task<Amenities> GetAmenitiesAsync(int id)
         {
             return await _context.Amenities.FirstOrDefaultAsync(amenities => amenities.ID == id);
         }
 
-        public Task<List<Amenities>> GetAmenities()
+        public Task<List<Amenities>> GetAmenitiesAsync()
         {
             throw new NotImplementedException();
         }
@@ -45,7 +45,7 @@ namespace Async_Inn.Models.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdateAmenities(Amenities amenities)
+        public Task UpdateAmenitiesAsync(Amenities amenities)
         {
             throw new NotImplementedException();
         }

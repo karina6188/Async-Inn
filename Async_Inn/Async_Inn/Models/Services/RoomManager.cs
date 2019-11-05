@@ -17,30 +17,30 @@ namespace Async_Inn.Models.Services
             _context = context;
         }
 
-        public async Task CreateRoom(Room room)
+        public async Task CreateRoomAsync(Room room)
         {
             _context.Room.Add(room);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteRoom(int id)
+        public async Task DeleteRoomAsync(int id)
         {
-            Room room = await GetRoom(id);
+            Room room = await GetRoomAsync(id);
             _context.Room.Remove(room);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Room> GetRoom(int id)
+        public async Task<Room> GetRoomAsync(int id)
         {
             return await _context.Room.FirstOrDefaultAsync(room => room.ID == id);
         }
 
-        public Task<List<Room>> GetRooms()
+        public Task<List<Room>> GetRoomsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateRoom(Room room)
+        public Task UpdateRoomAsync(Room room)
         {
             throw new NotImplementedException();
         }
