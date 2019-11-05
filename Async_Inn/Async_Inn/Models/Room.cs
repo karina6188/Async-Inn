@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Async_Inn.Models
 {
@@ -9,8 +10,10 @@ namespace Async_Inn.Models
     public class Room
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
-        public int Layout { get; set; }
+        [Required]
+        public RoomLayout Layout { get; set; }
 
         // Nav Props
         public ICollection<HotelRoom> HotelRoom { get; set; }

@@ -3,14 +3,16 @@ using Async_Inn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncDbContext))]
-    partial class AsyncDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191105053708_addedSeededData")]
+    partial class addedSeededData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,50 +149,11 @@ namespace Async_Inn.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Room");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Layout = 0,
-                            Name = "Coronado Sea Breeze"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Layout = 1,
-                            Name = "Nightly New York"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Layout = 2,
-                            Name = "Luxury Indulgence"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Layout = 0,
-                            Name = "Misty Bay View"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Layout = 1,
-                            Name = "Pacific Beach House"
-                        },
-                        new
-                        {
-                            ID = 6,
-                            Layout = 2,
-                            Name = "Chicago Cityscape"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.RoomAmenities", b =>
