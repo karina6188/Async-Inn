@@ -1,7 +1,7 @@
 # Async-Inn
 
 ## About This Program
-ASP.NET Core MVC Web Application
+ASP.NET Core MVC Web Application - Async Inn
 
 Author: Karina Chen
 
@@ -47,3 +47,9 @@ App Execution
 1.7: Add seeded data for hotels, rooms, and amenities. - 2019 Nov 04
 
 1.8: Apply stylesheet to each page. - 2019 Nov 04
+
+1.9: Add interfaces for classes to implement dependency injections. - 2019 Nov 05
+
+1.10: Add dependency injections managers for classes. - 2019 Nov 05
+
+1.11: Refactor controllers to implement dependency injections. - 2019 Nov 05

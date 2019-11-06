@@ -12,6 +12,9 @@ namespace Async_Inn.Controllers
 {
     public class RoomAmenitiesController : Controller
     {
+        /// <summary>
+        /// Get data from AsyncDatabase
+        /// </summary>
         private readonly AsyncDbContext _context;
 
         public RoomAmenitiesController(AsyncDbContext context)
@@ -49,7 +52,7 @@ namespace Async_Inn.Controllers
         // GET: RoomAmenities/Create
         public IActionResult Create()
         {
-            ViewData["AmenitiesID"] = new SelectList(_context.Amenities, "ID", "ID");
+            ViewData["AmenitiesID"] = new SelectList(_context.Amenities, "ID", "Name");
             ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name");
             return View();
         }

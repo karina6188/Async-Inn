@@ -23,10 +23,10 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Amenities)
+                    @Html.DisplayNameFor(model => model.Room)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Room)
+                    @Html.DisplayNameFor(model => model.Amenities)
                 </th>
                 <th></th>
             </tr>
@@ -36,10 +36,10 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Amenities.ID)
+                        @Html.DisplayFor(modelItem => item.Room.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Room.Name)
+                        @Html.DisplayFor(modelItem => item.Amenities.Name)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

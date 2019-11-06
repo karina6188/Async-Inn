@@ -7,34 +7,46 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
+using Async_Inn.Models.Interfaces;
 
 namespace Async_Inn.Controllers
 {
     public class RoomsController : Controller
     {
-        private readonly AsyncDbContext _context;
+        /// <summary>
+        /// Use IRoomManager interface to connect with database
+        /// </summary>
+        private readonly IRoomManager _context;
 
-        public RoomsController(AsyncDbContext context)
+        public RoomsController(IRoomManager context)
         {
             _context = context;
         }
 
         // GET: Rooms
+        /// <summary>
+        /// Get all the rooms from database and show them on index page
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Room.ToListAsync());
+            return View(await _context.GetRoomsAsync());
         }
 
         // GET: Rooms/Details/5
-        public async Task<IActionResult> Details(int? id)
+        /// <summary>
+        /// Find rooms details by id. If id is not 0, get the room by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
 
-            var room = await _context.Room
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var room = await _context.GetRoomAsync(id);
             if (room == null)
             {
                 return NotFound();
@@ -52,28 +64,37 @@ namespace Async_Inn.Controllers
         // POST: Rooms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Create a room and redirect the page back to index page.
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Layout")] Room room)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(room);
-                await _context.SaveChangesAsync();
+                await _context.CreateRoomAsync(room);
                 return RedirectToAction(nameof(Index));
             }
             return View(room);
         }
 
         // GET: Rooms/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        /// <summary>
+        /// Get the room by id. If found, edit the room and send back the result.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
 
-            var room = await _context.Room.FindAsync(id);
+            var room = await _context.GetRoomAsync(id);
             if (room == null)
             {
                 return NotFound();
@@ -84,6 +105,12 @@ namespace Async_Inn.Controllers
         // POST: Rooms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Get the room by id. If found, edit the room then redirect to the index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Layout")] Room room)
@@ -97,12 +124,11 @@ namespace Async_Inn.Controllers
             {
                 try
                 {
-                    _context.Update(room);
-                    await _context.SaveChangesAsync();
+                    await _context.UpdateRoomAsync(room);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoomExists(room.ID))
+                    if (!await RoomExists(room.ID))
                     {
                         return NotFound();
                     }
@@ -117,37 +143,44 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Rooms/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        /// <summary>
+        /// Get the room by id. If found, delete the room and redirect to index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
 
-            var room = await _context.Room
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (room == null)
-            {
-                return NotFound();
-            }
-
-            return View(room);
+            await _context.DeleteRoomAsync(id);
+            return RedirectToAction("Index");
         }
 
         // POST: Rooms/Delete/5
+        /// <summary>
+        /// To confirm if the room is to be deleted.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var room = await _context.Room.FindAsync(id);
-            _context.Room.Remove(room);
-            await _context.SaveChangesAsync();
+            await _context.DeleteRoomAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RoomExists(int id)
+        private async Task<bool> RoomExists(int id)
         {
-            return _context.Room.Any(e => e.ID == id);
+            Room room = await _context.GetRoomAsync(id);
+            if(room != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
