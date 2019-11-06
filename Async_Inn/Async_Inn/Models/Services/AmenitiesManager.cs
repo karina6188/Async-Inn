@@ -35,9 +35,10 @@ namespace Async_Inn.Models.Services
             return await _context.Amenities.FirstOrDefaultAsync(amenities => amenities.ID == id);
         }
 
-        public Task<List<Amenities>> GetAmenitiesAsync()
+        public async Task<List<Amenities>> GetAmenitiesAsync()
         {
-            throw new NotImplementedException();
+            List<Amenities> amenities = await _context.Amenities.ToListAsync();
+            return amenities;
         }
 
         public IEnumerable<RoomAmenities> GetRoomAmenitiesForRoom(int amenitiesID)
@@ -45,9 +46,10 @@ namespace Async_Inn.Models.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdateAmenitiesAsync(Amenities amenities)
+        public async Task UpdateAmenitiesAsync(Amenities amenities)
         {
-            throw new NotImplementedException();
+            _context.Amenities.Update(amenities);
+            await _context.SaveChangesAsync();
         }
     }
 

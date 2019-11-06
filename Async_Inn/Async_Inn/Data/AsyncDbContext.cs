@@ -21,6 +21,7 @@ namespace Async_Inn.Data
             modelBuilder.Entity<RoomAmenities>().HasKey(roomAmenities =>
             new { roomAmenities.AmenitiesID, roomAmenities.RoomID });
 
+            #region modelBuilder Hotel
             modelBuilder.Entity<Hotel>().HasData(
                 new Hotel
                 {
@@ -68,7 +69,9 @@ namespace Async_Inn.Data
                     Phone = "(415)268-9900"
                 }
                 );
+            #endregion
 
+            #region  modelBuilder Room
             modelBuilder.Entity<Room>().HasData(
                 new Room
                 {
@@ -107,6 +110,9 @@ namespace Async_Inn.Data
                     Layout = Layout.TwoBedroom
                 }
                 );
+            #endregion
+
+            #region modelBuilder Amenities
             modelBuilder.Entity<Amenities>().HasData(
                 new Amenities
                 {
@@ -134,6 +140,7 @@ namespace Async_Inn.Data
                     Name = "Fireplace"
                 }
                 );
+            #endregion
         }
 
         public DbSet<Hotel> Hotel { get; set; }

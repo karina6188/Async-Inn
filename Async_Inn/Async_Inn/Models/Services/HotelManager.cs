@@ -32,9 +32,9 @@ namespace Async_Inn.Models.Services
 
         public async Task<Hotel> GetHotelAsync(int id) => await _context.Hotel.FirstOrDefaultAsync(hotel => hotel.ID == id);
 
-        public Task<List<Hotel>> GetHotelsAsync()
+        public async Task<List<Hotel>> GetHotelsAsync()
         {
-            var hotels = _context.Hotel.ToListAsync();
+            List<Hotel> hotels = await _context.Hotel.ToListAsync();
             return hotels;
         }
 

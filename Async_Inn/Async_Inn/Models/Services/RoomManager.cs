@@ -35,24 +35,26 @@ namespace Async_Inn.Models.Services
             return await _context.Room.FirstOrDefaultAsync(room => room.ID == id);
         }
 
-        public Task<List<Room>> GetRoomsAsync()
+        public async Task<List<Room>> GetRoomsAsync()
         {
-            throw new NotImplementedException();
+            List<Room> rooms = await _context.Room.ToListAsync();
+            return rooms;
         }
 
-        public Task UpdateRoomAsync(Room room)
+        public async Task UpdateRoomAsync(Room room)
         {
-            throw new NotImplementedException();
+            _context.Room.Update(room);
+            await _context.SaveChangesAsync();
         }
 
         public IEnumerable<HotelRoom> GetHotelRoomsForRoom(int roomID)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public IEnumerable<RoomAmenities> GetRoomAmenitiesForRoom(int roomID)
+        public Task<List<RoomAmenities>> GetRoomAmenitiesForRoom(int roomID)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 
