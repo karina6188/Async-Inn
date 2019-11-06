@@ -13,6 +13,9 @@ namespace Async_Inn.Controllers
 {
     public class AmenitiesController : Controller
     {
+        /// <summary>
+        /// Use IAmenitiesManager interface to connect with database
+        /// </summary>
         private readonly IAmenitiesManager _context;
 
         public AmenitiesController(IAmenitiesManager context)
@@ -20,6 +23,10 @@ namespace Async_Inn.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Get all the amenities from database and show them on index page
+        /// </summary>
+        /// <returns></returns>
         // GET: Amenities
         public async Task<IActionResult> Index()
         {
@@ -27,6 +34,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Amenities/Details/5
+        /// <summary>
+        /// Find amenities details by id. If id is not 0, get the amenities by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Details(int id)
         {
             if (id == 0)
@@ -52,6 +64,11 @@ namespace Async_Inn.Controllers
         // POST: Amenities/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Create an amenity and redirect the page back to index page.
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name")] Amenities amenities)
@@ -65,6 +82,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Amenities/Edit/5
+        /// <summary>
+        /// Get the amenity by id. If found, edit the amenity and send back the result.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Edit(int id)
         {
             if (id <= 0)
@@ -83,6 +105,12 @@ namespace Async_Inn.Controllers
         // POST: Amenities/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Get the amenity by id. If found, edit the amenity then redirect to the index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name")] Amenities amenities)
@@ -115,6 +143,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Amenities/Delete/5
+        /// <summary>
+        /// Get the amenity by id. If found, delete the amenity and redirect to index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0)
@@ -127,6 +160,11 @@ namespace Async_Inn.Controllers
         }
 
         // POST: Amenities/Delete/5
+        /// <summary>
+        /// To confirm if the amenity is to be deleted.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

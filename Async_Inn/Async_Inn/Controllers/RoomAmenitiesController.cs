@@ -12,6 +12,9 @@ namespace Async_Inn.Controllers
 {
     public class RoomAmenitiesController : Controller
     {
+        /// <summary>
+        /// Get data from AsyncDatabase
+        /// </summary>
         private readonly AsyncDbContext _context;
 
         public RoomAmenitiesController(AsyncDbContext context)

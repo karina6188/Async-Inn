@@ -13,6 +13,9 @@ namespace Async_Inn.Controllers
 {
     public class HotelsController : Controller
     {
+        /// <summary>
+        /// Use IHotelManager interface to connect with database
+        /// </summary>
         private readonly IHotelManager _context;
 
         public HotelsController(IHotelManager context)
@@ -21,12 +24,21 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Hotels
+        /// <summary>
+        /// Get all the hotels from database and show them on index page
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             return View(await _context.GetHotelsAsync());
         }
 
         // GET: Hotels/Details/5
+        /// <summary>
+        /// Find hotel details by id. If id is not 0, get the hotel by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Details(int id)
         {
             if (id == 0)
@@ -51,6 +63,11 @@ namespace Async_Inn.Controllers
         // POST: Hotels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Create a hotel and redirect the page back to index page.
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,StreetAddress,City,State,Phone")] Hotel hotel)
@@ -64,6 +81,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Hotels/Edit/5
+        /// <summary>
+        /// Get the hotel by id. If found, edit the hotel and send back the result.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Edit(int id)
         {
             if (id == 0)
@@ -82,6 +104,12 @@ namespace Async_Inn.Controllers
         // POST: Hotels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Get the hotel by id. If found, edit the hotel then redirect to the index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,StreetAddress,City,State,Phone")] Hotel hotel)
@@ -114,6 +142,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Hotels/Delete/5
+        /// <summary>
+        /// Get the hotel by id. If found, delete the hotel and redirect to index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
@@ -127,6 +160,11 @@ namespace Async_Inn.Controllers
         }
 
         // POST: Hotels/Delete/5
+        /// <summary>
+        /// To confirm if the hotel is to be deleted.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

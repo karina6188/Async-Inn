@@ -13,6 +13,9 @@ namespace Async_Inn.Controllers
 {
     public class RoomsController : Controller
     {
+        /// <summary>
+        /// Use IRoomManager interface to connect with database
+        /// </summary>
         private readonly IRoomManager _context;
 
         public RoomsController(IRoomManager context)
@@ -21,12 +24,21 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Rooms
+        /// <summary>
+        /// Get all the rooms from database and show them on index page
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             return View(await _context.GetRoomsAsync());
         }
 
         // GET: Rooms/Details/5
+        /// <summary>
+        /// Find rooms details by id. If id is not 0, get the room by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Details(int id)
         {
             if (id == 0)
@@ -52,6 +64,11 @@ namespace Async_Inn.Controllers
         // POST: Rooms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Create a room and redirect the page back to index page.
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Layout")] Room room)
@@ -65,6 +82,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Rooms/Edit/5
+        /// <summary>
+        /// Get the room by id. If found, edit the room and send back the result.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Edit(int id)
         {
             if (id == 0)
@@ -83,6 +105,12 @@ namespace Async_Inn.Controllers
         // POST: Rooms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Get the room by id. If found, edit the room then redirect to the index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Layout")] Room room)
@@ -115,6 +143,11 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Rooms/Delete/5
+        /// <summary>
+        /// Get the room by id. If found, delete the room and redirect to index page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
@@ -127,6 +160,11 @@ namespace Async_Inn.Controllers
         }
 
         // POST: Rooms/Delete/5
+        /// <summary>
+        /// To confirm if the room is to be deleted.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
