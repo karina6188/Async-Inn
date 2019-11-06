@@ -47,12 +47,12 @@ namespace Async_Inn.Models.Services
             await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<HotelRoom> GetHotelRoomsForRoom(int roomID)
+        public Task<List<RoomAmenities>> GetRoomAmenitiesForRoom(int roomID)
         {
             return null;
         }
 
-        public Task<List<RoomAmenities>> GetRoomAmenitiesForRoom(int roomID)
+        public IEnumerable<HotelRoom> GetHotelRoomsForRoom(int roomID, int hotelID)
         {
             return null;
         }
