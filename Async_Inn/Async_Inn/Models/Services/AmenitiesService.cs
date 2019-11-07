@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Async_Inn.Models.Services
 {
-    public class AmenitiesManager : IAmenitiesManager
+    public class AmenitiesService : IAmenitiesManager
     {
         private AsyncDbContext _context;
 
-        public AmenitiesManager(AsyncDbContext context)
+        public AmenitiesService(AsyncDbContext context)
         {
             _context = context;
         }
