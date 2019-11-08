@@ -50,3 +50,7 @@ th, td {
     padding: 3.5px 5px;
     text-align: left;
 }
+
+ul > li {
+    display:block;
+}
