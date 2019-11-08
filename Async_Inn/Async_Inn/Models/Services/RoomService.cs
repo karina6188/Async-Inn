@@ -52,9 +52,9 @@ namespace Async_Inn.Models.Services
             return null;
         }
 
-        public IEnumerable<HotelRoom> GetHotelRoomsForRoom(int roomID, int hotelID)
+        public IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID)
         {
-            var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID).Where(x => x.RoomID == roomID);
+            var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID);
             return hotelRooms;
         }
     }

@@ -40,7 +40,9 @@ namespace Async_Inn.Models.Services
 
         public IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID)
         {
-            var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID);
+            var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID)
+                             .Include(e => e.Hotel)
+                             .Include(e => e.Room);
             return hotelRooms;
         }
 

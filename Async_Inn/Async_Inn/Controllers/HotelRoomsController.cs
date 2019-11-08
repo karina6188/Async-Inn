@@ -26,8 +26,15 @@ namespace Async_Inn.Controllers
             _rooms = rooms;
         }
 
+        // GET: HotelRooms
+        //public async Task<IActionResult> Index()
+        //{
+        //    var asyncDbContext = _hotels.HotelRooms.Include(r => r.Amenities).Include(r => r.Room);
+        //    return View(await asyncDbContext.ToListAsync());
+        //}
+
         // GET: HotelRooms/Details/5
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> HotelDetailsAsync(int id)
         {
             var hotelRoom = _hotels.GetHotelRoomsForHotel(id);
 
@@ -36,12 +43,12 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            RoomHotelVM ecvm = new RoomHotelVM();
+            RoomHotelVM rhvm = new RoomHotelVM();
 
-            ecvm.Hotel = await _hotels.GetHotelAsync(id);
-            ecvm.HotelRoom = hotelRoom;
+            rhvm.Hotel = await _hotels.GetHotelAsync(id);
+            rhvm.HotelRoom = hotelRoom;
 
-            return View(ecvm);
+            return View(rhvm);
         }
 
         // GET: HotelRooms/Create
@@ -61,7 +68,7 @@ namespace Async_Inn.Controllers
         {
             if (ModelState.IsValid)
             {
-                _rooms.GetHotelRoomsForRoom(hotelRoom.RoomID, hotelRoom.HotelID);
+                _rooms.GetHotelRoomsForHotel(hotelRoom.HotelID);
                 return RedirectToAction(nameof(Index), "Rooms");
             }
             ViewData["HotelID"] = new SelectList(await _hotels.GetHotelsAsync(), "ID", "City", hotelRoom.HotelID);
