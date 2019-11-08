@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Async_Inn.Models.Services
 {
-    public class HotelManager : IHotelManager
+    public class HotelService : IHotelManager
     {
         private AsyncDbContext _context;
 
-        public HotelManager(AsyncDbContext context)
+        public HotelService(AsyncDbContext context)
         {
             _context = context;
         }
@@ -40,7 +40,10 @@ namespace Async_Inn.Models.Services
 
         public IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID)
         {
-            return null;
+            var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID)
+                             .Include(e => e.Hotel)
+                             .Include(e => e.Room);
+            return hotelRooms;
         }
 
         public async Task UpdateHotelAsync(Hotel hotel)

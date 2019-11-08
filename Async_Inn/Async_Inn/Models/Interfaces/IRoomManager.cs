@@ -21,7 +21,7 @@ namespace Async_Inn.Models.Interfaces
 
         Task<List<Room>> GetRoomsAsync();
 
-        IEnumerable<HotelRoom> GetHotelRoomsForRoom(int roomID);
+        IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID);
 
         Task<List<RoomAmenities>> GetRoomAmenitiesForRoom(int roomID);
     }

@@ -1,0 +1,15 @@
+﻿@model Async_Inn.Models.ViewModels.RoomHotelVM
+@{
+    ViewData["Title"] = "HotelDetails";
+}
+
+<h1>Hotel Details of @Model.Hotel.Name</h1>
+
+@foreach (var item in Model.HotelRoom)
+{
+    <p>@item.RoomNumber</p>
+    <p>@item.Room</p>
+    <p>@item.Rate</p>
+    <p>@item.PetFriendly</p>
+}
+
