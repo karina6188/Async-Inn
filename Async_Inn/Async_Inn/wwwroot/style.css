@@ -5,24 +5,96 @@
     font-family: 'Merriweather', serif;
     font-family: 'Source Serif Pro', serif;
     font-family: 'Neuton', serif;*/
-    margin: 25px 30px;
+    margin: 0;
 }
 
-h1 {
-    color: white;
-    font-weight: bold;
+ul {
+    margin: 10px auto;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 700px;
+    text-align: center;
+}
+
+li {
+    font-family: 'Neuton', serif;
+    display: table-cell;
+    position: relative;
+    padding: 0px 0 15px 0;
+    text-transform: uppercase;
+}
+
+.nav {
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 0px;
+    position: relative;
+}
+
+.nav:hover {
+    color: rgb(131, 131, 131)
+}
+
+.nav:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: rgb(131, 131, 131);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.nav:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.topnav a {
+    float: left;
+    font-family: 'Neuton', serif;
+    color: rgb(57, 57, 57);
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.topbar {
+    background-color: rgb(80, 80, 80);
+    color: azure;
+    padding: 5px;
+    width: 100%;
+}
+
+.topbar > p {
+    font-size: 0.8em;
+    padding: 6px 8px;
+}
+
+.title {
+    text-align: center;
     font-size: 2em;
-    background-color: #0e0e44;
     padding: 30px;
+    margin: 10px auto;
+}
+
+h2 {
+    color: black;
+    font-size: 1.5em;
     margin: 10px;
 }
-
 h5 {
     font-family: 'Neuton', serif;
     color: black;
 }
 
-div, h4, h5, hr, p {
+h4, h5, hr, p {
     margin: 10px;
 }
 
@@ -49,8 +121,4 @@ th, td {
     border: 1px solid rgb(212, 211, 211);
     padding: 3.5px 5px;
     text-align: left;
-}
-
-ul > li {
-    display:block;
 }
