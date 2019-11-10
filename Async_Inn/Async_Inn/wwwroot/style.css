@@ -5,6 +5,7 @@
     font-family: 'Source Serif Pro', serif;*/
     font-family: 'Neuton', serif;
     text-align: center;
+    min-width: 900px;
     margin: 0;
 }
 
@@ -75,7 +76,7 @@ li {
 .topbar > p {
     font-family: 'Neuton', serif;
     font-size: 0.9em;
-    padding: 10px 8px;
+    padding: 10px 12px;
     text-align: left;
 }
 
@@ -100,6 +101,10 @@ li {
 .button:hover {
     border-color: rgb(163, 96, 124);
     color: rgb(163, 96, 124);
+}
+
+.button:after {
+    color: black;
 }
 
 .links {
@@ -162,12 +167,12 @@ td {
 footer {
     background-color: rgb(48, 50, 70);
     color: azure;
-    position: absolute;
-    bottom: 0;
     width: 100%;
 }
 
 footer > p {
-    padding: 8px;
+    text-align: left;
+    margin-top: 110px;
+    padding: 8px 12px;
     font-size: 0.8em;
 }
