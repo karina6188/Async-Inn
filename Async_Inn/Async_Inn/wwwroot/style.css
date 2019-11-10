@@ -1,10 +1,9 @@
 ﻿body {
     background-color: white;
-    font-family: 'Noto Serif', serif;
     /*font-family: 'Noto Serif', serif;
-    font-family: 'Merriweather', serif;
-    font-family: 'Source Serif Pro', serif;
-    font-family: 'Neuton', serif;*/
+    /*font-family: 'Merriweather', serif;
+    font-family: 'Source Serif Pro', serif;*/
+    font-family: 'Neuton', serif;
     margin: 0;
 }
 
@@ -42,7 +41,7 @@ li {
     bottom: 0;
     content: "";
     display: block;
-    height: 2px;
+    height: 1.5px;
     left: 50%;
     position: absolute;
     background: rgb(131, 131, 131);
@@ -68,13 +67,14 @@ li {
 .topbar {
     background-color: rgb(80, 80, 80);
     color: azure;
-    padding: 5px;
+    padding: 3px;
     width: 100%;
 }
 
 .topbar > p {
-    font-size: 0.8em;
-    padding: 6px 8px;
+    font-family: 'Neuton', serif;
+    font-size: 0.9em;
+    padding: 3px 8px;
 }
 
 .title {
@@ -84,11 +84,26 @@ li {
     margin: 10px auto;
 }
 
+.button {
+    margin-left: 10px;
+    background-color: rgb(67, 67, 67);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 0.5em;
+    display: inline-block;
+}
+
+.button > p {
+    color: white;
+}
 h2 {
     color: black;
     font-size: 1.5em;
-    margin: 10px;
+    text-align: center;
+    padding: 30px;
+    margin: 10px auto;
 }
+
 h5 {
     font-family: 'Neuton', serif;
     color: black;
@@ -99,13 +114,11 @@ h4, h5, hr, p {
 }
 
 table {
-    font-family: 'Source Sans Pro', sans-serif;
     margin: 10px 0px 0px 10px;
     width: 960px;
 }
 
 thead {
-    background-color: rgb(199, 199, 199);
     font-weight: bold;
 }
 
@@ -113,12 +126,24 @@ tbody {
     background-color: #ffffff;
 }
 
-tr:hover {
-    background-color: rgb(230, 230, 230);
+tbody > tr:hover {
+    text-decoration: underline;
+    color: rgb(84, 84, 84);
 }
 
-th, td {
-    border: 1px solid rgb(212, 211, 211);
+th {
+    letter-spacing: 0.02em;
     padding: 3.5px 5px;
     text-align: left;
+}
+
+td {
+    letter-spacing: 0.02em;
+    padding: 3.5px 5px;
+    text-align: left;
+}
+
+footer > p {
+    padding: 6px 8px;
+    font-size: 0.8em;
 }
