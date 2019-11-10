@@ -4,6 +4,7 @@
     /*font-family: 'Merriweather', serif;
     font-family: 'Source Serif Pro', serif;*/
     font-family: 'Neuton', serif;
+    text-align: center;
     margin: 0;
 }
 
@@ -65,7 +66,7 @@ li {
 }
 
 .topbar {
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(48, 50, 70);
     color: azure;
     padding: 3px;
     width: 100%;
@@ -74,34 +75,55 @@ li {
 .topbar > p {
     font-family: 'Neuton', serif;
     font-size: 0.9em;
-    padding: 3px 8px;
+    padding: 10px 8px;
+    text-align: left;
 }
 
 .title {
     text-align: center;
     font-size: 2em;
     padding: 30px;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 .button {
-    margin-left: 10px;
-    background-color: rgb(67, 67, 67);
-    text-decoration: none;
-    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 8px 15px;
+    line-height: 14px;
     border-radius: 0.5em;
+    border: 1.5px solid rgb(103, 103, 103);
     display: inline-block;
+    text-decoration: none;
 }
 
-.button > p {
-    color: white;
+.button:hover {
+    border-color: rgb(163, 96, 124);
+    color: rgb(163, 96, 124);
 }
+
+.links {
+    text-decoration: none;
+    border-radius: 0.5em;
+    padding: 0px 10px;
+    line-height: 14px;
+    border: 1.5px solid rgb(103, 103, 103);
+    color: black;
+    font-size: 0.9em;
+    margin-right: 3px;
+}
+
+.links:hover {
+    border-color: rgb(163, 96, 124);
+    color: rgb(163, 96, 124);
+}
+
 h2 {
     color: black;
     font-size: 1.5em;
     text-align: center;
     padding: 30px;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 h5 {
@@ -109,41 +131,43 @@ h5 {
     color: black;
 }
 
-h4, h5, hr, p {
-    margin: 10px;
-}
-
 table {
-    margin: 10px 0px 0px 10px;
-    width: 960px;
+    text-align: center;
+    width: auto;
+    margin: 10px auto;
 }
 
 thead {
     font-weight: bold;
 }
 
-tbody {
-    background-color: #ffffff;
-}
-
 tbody > tr:hover {
-    text-decoration: underline;
-    color: rgb(84, 84, 84);
+    color: rgb(163, 96, 124);
 }
 
 th {
     letter-spacing: 0.02em;
     padding: 3.5px 5px;
-    text-align: left;
+    text-align: center;
+    border-bottom: 1.5px solid rgb(139, 139, 139);
 }
 
 td {
     letter-spacing: 0.02em;
-    padding: 3.5px 5px;
-    text-align: left;
+    padding: 4px 20px;
+    text-align: center;
+    border-bottom: 1.5px solid rgb(139, 139, 139);
+}
+
+footer {
+    background-color: rgb(48, 50, 70);
+    color: azure;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 footer > p {
-    padding: 6px 8px;
+    padding: 8px;
     font-size: 0.8em;
 }
