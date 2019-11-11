@@ -17,46 +17,69 @@ namespace Async_Inn.Models.Services
             _context = context;
         }
 
-        public async Task CreateRoomAsync(Room room)
+        public async Task CreateRoom(Room room)
         {
-            _context.Room.Add(room);
+            await _context.AddAsync(room);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteRoomAsync(int id)
+        public async Task DeleteRoom(int id)
         {
-            Room room = await GetRoomAsync(id);
-            _context.Room.Remove(room);
+            Room room = await GetRoomById(id);
+            _context.Remove(room);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Room> GetRoomAsync(int id)
+        public async Task<Room> GetRoomById(int id)
         {
             return await _context.Room.FirstOrDefaultAsync(room => room.ID == id);
         }
 
-        public async Task<List<Room>> GetRoomsAsync()
+        public async Task<List<Room>> GetRooms()
         {
             List<Room> rooms = await _context.Room.ToListAsync();
             return rooms;
         }
 
-        public async Task UpdateRoomAsync(Room room)
+        public async Task UpdateRoom(Room room)
         {
-            _context.Room.Update(room);
+            _context.Update(room);
             await _context.SaveChangesAsync();
         }
 
-        public Task<List<RoomAmenities>> GetRoomAmenitiesForRoom(int roomID)
+        public async Task<IEnumerable<HotelRoom>> GetHotelOfTheRoom(int roomID)
         {
-            return null;
-        }
-
-        public IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID)
-        {
-            var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID);
+            var hotelRooms = await _context.HotelRoom.Where(x => x.RoomID == roomID).ToListAsync();
             return hotelRooms;
         }
-    }
 
+        public IEnumerable<RoomAmenities> GetRoomAmenitiesByRoom(int roomID)
+        {
+            var roomAmenities = _context.RoomAmenities.Where(x => x.RoomID == roomID)
+                             .Include(x => x.Amenities)
+                             .Include(x => x.Room);
+            return roomAmenities;
+        }
+
+        public async Task<IEnumerable<Amenities>> GetAllAmenities()
+        {
+            return await _context.Amenities.ToListAsync();
+        }
+
+        public async Task AddAmenitiesToRoom(int roomID, int amenitiesID)
+        {
+            RoomAmenities newAmenities = new RoomAmenities();
+            newAmenities.RoomID = roomID;
+            newAmenities.AmenitiesID = amenitiesID;
+            _context.RoomAmenities.Add(newAmenities);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAmenitiesFromRoo(int roomID, int amenityID)
+        {
+            RoomAmenities deletedAmenities = await _context.RoomAmenities.FirstOrDefaultAsync(x => x.RoomID == roomID && x.AmenitiesID == amenityID);
+            _context.Remove(deletedAmenities);
+            await _context.SaveChangesAsync();
+        }
+    }
 }

@@ -20,6 +20,6 @@ namespace Async_Inn.Models.Interfaces
         // Delete
         Task DeleteAmenities(int id);
 
-        IEnumerable<RoomAmenities> GetRoomAmenitiesForRoom(int amenitiesID);
+        Task<IEnumerable<RoomAmenities>> GetRoomForRoomAmenities(int amenitiesID);
     }
 }
