@@ -30,7 +30,7 @@ namespace Async_Inn.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GetRoomsAsync());
+            return View(await _context.GetRooms());
         }
 
         // GET: Rooms/Details/5
@@ -46,7 +46,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var room = await _context.GetRoomAsync(id);
+            var room = await _context.GetRoomById(id);
             if (room == null)
             {
                 return NotFound();
@@ -75,7 +75,7 @@ namespace Async_Inn.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.CreateRoomAsync(room);
+                await _context.CreateRoom(room);
                 return RedirectToAction(nameof(Index));
             }
             return View(room);
@@ -94,7 +94,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var room = await _context.GetRoomAsync(id);
+            var room = await _context.GetRoomById(id);
             if (room == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Async_Inn.Controllers
             {
                 try
                 {
-                    await _context.UpdateRoomAsync(room);
+                    await _context.UpdateRoom(room);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -155,7 +155,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            await _context.DeleteRoomAsync(id);
+            await _context.DeleteRoom(id);
             return RedirectToAction("Index");
         }
 
@@ -169,13 +169,13 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _context.DeleteRoomAsync(id);
+            await _context.DeleteRoom(id);
             return RedirectToAction(nameof(Index));
         }
 
         private async Task<bool> RoomExists(int id)
         {
-            Room room = await _context.GetRoomAsync(id);
+            Room room = await _context.GetRoomById(id);
             if(room != null)
             {
                 return true;

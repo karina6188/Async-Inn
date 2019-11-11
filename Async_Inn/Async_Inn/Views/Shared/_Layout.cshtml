@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/reset.css" />
+    <link rel="stylesheet" href="~/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Neuton|Noto+Serif|Source+Serif+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <p>Async Inn International Hotels & Resorts</p>
+    </div>
+    <h1 class="title">Async Inn</h1>
+    <ul class="topnav">
+        <li><a class="nav" href="Home">Home</a></li>
+        <li><a class="nav" href="Hotels">Hotels</a></li>
+        <li><a class="nav" href="HotelRooms">Hotel Rooms</a></li>
+        <li><a class="nav" href="Rooms">Rooms</a></li>
+        <li><a class="nav" href="RoomAmenities">Room Amenities</a></li>
+        <li><a class="nav" href="Amenities">Amenities</a></li>
+    </ul>
+
+    <div>
+        @RenderBody()
+    </div>
+    
+    <footer>
+        <p>&copy; Async Inn International Limited. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

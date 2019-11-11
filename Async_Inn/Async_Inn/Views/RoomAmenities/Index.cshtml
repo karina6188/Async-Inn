@@ -2,23 +2,16 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Room Amenities</title>
-    <link href="~/reset.css" rel="stylesheet">
-    <link href="~/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Neuton|Noto+Serif|Source+Serif+Pro&display=swap" rel="stylesheet">
-</head>
 <body>
-    <h1>Room Amenities</h1>
+    <h2>Room Amenities</h2>
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    <div><a class="button" asp-action="Create">Create New</a></div>
+
     <table class="table">
         <thead>
             <tr>
@@ -42,13 +35,13 @@
                         @Html.DisplayFor(modelItem => item.Amenities.Name)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
                         @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    </body>
+</body>
 </html>

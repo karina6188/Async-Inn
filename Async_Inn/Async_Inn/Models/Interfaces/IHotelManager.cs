@@ -8,19 +8,20 @@ namespace Async_Inn.Models.Interfaces
     public interface IHotelManager
     {
         // Create
-        Task CreateHotelAsync(Hotel hotel);
+        Task CreateHotel(Hotel hotel);
 
         // Read
-        Task<Hotel> GetHotelAsync(int id);
+        Task<Hotel> GetHotelById(int id);
+        Task<List<Hotel>> GetHotels();
 
         // Update
-        Task UpdateHotelAsync(Hotel hotel);
+        Task UpdateHotel(Hotel hotel);
 
         // Delete
-        Task DeleteHotelAsync(int id);
+        Task DeleteHotel(int id);
 
-        Task<List<Hotel>> GetHotelsAsync();
-
-        IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID);
+        IEnumerable<HotelRoom> GetHotelRooms(int hotelID);
+        Task AddRoomsToHotel(HotelRoom hotelRoom);
+        Task DeleteRoomsFromHotel(int hotelID, int roomID);
     }
 }

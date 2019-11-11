@@ -2,23 +2,16 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Amenities</title>
-    <link href="~/reset.css" rel="stylesheet">
-    <link href="~/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Neuton|Noto+Serif|Source+Serif+Pro&display=swap" rel="stylesheet">
-</head>
 <body>
-    <h1>Amenities</h1>
+    <h2>Amenities</h2>
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    <div><a class="button" asp-action="Create">Create New</a></div>
+
     <table class="table">
         <thead>
             <tr>
@@ -36,13 +29,13 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        <a class="links" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        <a class="links" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        <a class="links" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    </body>
+</body>
 </html>

@@ -1,20 +1,135 @@
 ﻿body {
     background-color: white;
-    font-family: 'Noto Serif', serif;
     /*font-family: 'Noto Serif', serif;
-    font-family: 'Merriweather', serif;
-    font-family: 'Source Serif Pro', serif;
-    font-family: 'Neuton', serif;*/
-    margin: 25px 30px;
+    /*font-family: 'Merriweather', serif;
+    font-family: 'Source Serif Pro', serif;*/
+    font-family: 'Neuton', serif;
+    text-align: center;
+    min-width: 900px;
+    margin: 0;
 }
 
-h1 {
-    color: white;
-    font-weight: bold;
+ul {
+    margin: 10px auto;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 700px;
+    text-align: center;
+}
+
+li {
+    font-family: 'Neuton', serif;
+    display: table-cell;
+    position: relative;
+    padding: 0px 0 15px 0;
+    text-transform: uppercase;
+}
+
+.nav {
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 0px;
+    position: relative;
+}
+
+.nav:hover {
+    color: rgb(131, 131, 131)
+}
+
+.nav:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1.5px;
+    left: 50%;
+    position: absolute;
+    background: rgb(131, 131, 131);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.nav:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.topnav a {
+    float: left;
+    font-family: 'Neuton', serif;
+    color: rgb(57, 57, 57);
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.topbar {
+    background-color: rgb(48, 50, 70);
+    color: azure;
+    padding: 3px;
+    width: 100%;
+}
+
+.topbar > p {
+    font-family: 'Neuton', serif;
+    font-size: 0.9em;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.title {
+    text-align: center;
     font-size: 2em;
-    background-color: #0e0e44;
     padding: 30px;
-    margin: 10px;
+    margin: 0px auto;
+}
+
+.button {
+    color: black;
+    margin: 10px auto;
+    text-align: center;
+    padding: 8px 15px;
+    line-height: 14px;
+    border-radius: 0.5em;
+    border: 1.5px solid rgb(103, 103, 103);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button:hover {
+    border-color: rgb(163, 96, 124);
+    color: rgb(163, 96, 124);
+}
+
+.button:after {
+    color: black;
+}
+
+.links {
+    text-decoration: none;
+    border-radius: 0.5em;
+    padding: 0px 10px;
+    line-height: 14px;
+    border: 1.5px solid rgb(103, 103, 103);
+    color: black;
+    font-size: 0.9em;
+    margin-right: 3px;
+}
+
+.links:hover {
+    border-color: rgb(163, 96, 124);
+    color: rgb(163, 96, 124);
+}
+
+h2 {
+    color: black;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 30px;
+    margin: 0px auto;
 }
 
 h5 {
@@ -22,31 +137,43 @@ h5 {
     color: black;
 }
 
-div, h4, h5, hr, p {
-    margin: 10px;
-}
-
 table {
-    font-family: 'Source Sans Pro', sans-serif;
-    margin: 10px 0px 0px 10px;
-    width: 960px;
+    text-align: center;
+    width: auto;
+    margin: 10px auto;
 }
 
 thead {
-    background-color: rgb(199, 199, 199);
     font-weight: bold;
 }
 
-tbody {
-    background-color: #ffffff;
+tbody > tr:hover {
+    color: rgb(163, 96, 124);
 }
 
-tr:hover {
-    background-color: rgb(230, 230, 230);
-}
-
-th, td {
-    border: 1px solid rgb(212, 211, 211);
+th {
+    letter-spacing: 0.02em;
     padding: 3.5px 5px;
+    text-align: center;
+    border-bottom: 1.5px solid rgb(139, 139, 139);
+}
+
+td {
+    letter-spacing: 0.02em;
+    padding: 4px 20px;
+    text-align: center;
+    border-bottom: 1.5px solid rgb(139, 139, 139);
+}
+
+footer {
+    background-color: rgb(48, 50, 70);
+    color: azure;
+    width: 100%;
+}
+
+footer > p {
     text-align: left;
+    margin-top: 110px;
+    padding: 8px 12px;
+    font-size: 0.8em;
 }

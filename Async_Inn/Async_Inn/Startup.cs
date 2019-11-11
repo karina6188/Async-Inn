@@ -18,10 +18,14 @@ namespace Async_Inn
     public class Startup
     {
         public IConfiguration Configuration { get; }
+        public IHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration)
+        public Startup(IHostEnvironment environment)
         {
-            Configuration = configuration;
+            Environment = environment;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -30,8 +34,12 @@ namespace Async_Inn
         {
             services.AddMvc();
 
+            string connectionString = Environment.IsDevelopment()
+                    ? Configuration["ConnectionStrings:DefaultConnection"]
+                    : Configuration["ConnectionStrings:ProductionConnection"];
+
             services.AddDbContext<AsyncDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
 
             services.AddScoped<IHotelManager, HotelService>();
             services.AddScoped<IRoomManager, RoomService>();

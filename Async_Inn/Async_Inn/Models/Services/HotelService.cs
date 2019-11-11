@@ -17,28 +17,33 @@ namespace Async_Inn.Models.Services
             _context = context;
         }
 
-        public async Task CreateHotelAsync(Hotel hotel)
+        public async Task CreateHotel(Hotel hotel)
         {
             await _context.AddAsync(hotel);
             await _context.SaveChangesAsync();
         }
-
-        public async Task DeleteHotelAsync(int id)
+        public async Task UpdateHotel(Hotel hotel)
         {
-            Hotel hotel = await GetHotelAsync(id);
+            _context.Hotel.Update(hotel);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteHotel(int id)
+        {
+            Hotel hotel = await GetHotelById(id);
             _context.Hotel.Remove(hotel);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Hotel> GetHotelAsync(int id) => await _context.Hotel.FirstOrDefaultAsync(hotel => hotel.ID == id);
+        public async Task<Hotel> GetHotelById(int id) => await _context.Hotel.FirstOrDefaultAsync(hotel => hotel.ID == id);
 
-        public async Task<List<Hotel>> GetHotelsAsync()
+        public async Task<List<Hotel>> GetHotels()
         {
             List<Hotel> hotels = await _context.Hotel.ToListAsync();
             return hotels;
         }
 
-        public IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID)
+        public IEnumerable<HotelRoom> GetHotelRooms(int hotelID)
         {
             var hotelRooms = _context.HotelRoom.Where(x => x.HotelID == hotelID)
                              .Include(e => e.Hotel)
@@ -46,9 +51,16 @@ namespace Async_Inn.Models.Services
             return hotelRooms;
         }
 
-        public async Task UpdateHotelAsync(Hotel hotel)
+        public async Task AddRoomsToHotel(HotelRoom hotelRoom)
         {
-            _context.Hotel.Update(hotel);
+            await _context.HotelRoom.AddAsync(hotelRoom);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteRoomsFromHotel(int hotelID, int roomID)
+        {
+            HotelRoom hotelRoom = await _context.HotelRoom.FirstOrDefaultAsync(x => x.HotelID == hotelID && x.RoomID == roomID);
+            _context.Remove(hotelRoom);
             await _context.SaveChangesAsync();
         }
     }

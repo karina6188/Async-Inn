@@ -6,21 +6,20 @@ using static Async_Inn.Models.Room;
 
 namespace Async_Inn.Data
 {
-    /// <summary>
-    /// Summary description for AsyncDbContext
-    /// </summary>
     public class AsyncDbContext : DbContext
     {
         public AsyncDbContext(DbContextOptions<AsyncDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Set composite keys
             modelBuilder.Entity<HotelRoom>().HasKey(hotelRoom =>
             new { hotelRoom.HotelID, hotelRoom.RoomNumber });
 
             modelBuilder.Entity<RoomAmenities>().HasKey(roomAmenities =>
             new { roomAmenities.AmenitiesID, roomAmenities.RoomID });
 
+            // Seeding data
             #region modelBuilder Hotel
             modelBuilder.Entity<Hotel>().HasData(
                 new Hotel

@@ -30,7 +30,7 @@ namespace Async_Inn.Controllers
         // GET: Amenities
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GetAmenitiesAsync());
+            return View(await _context.GetAmenities());
         }
 
         // GET: Amenities/Details/5
@@ -46,7 +46,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            Amenities amenities = await _context.GetAmenitiesAsync(id);
+            Amenities amenities = await _context.GetAmenitiesById(id);
             if (amenities == null)
             {
                 return NotFound();
@@ -75,7 +75,7 @@ namespace Async_Inn.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.CreateAmenitiesAsync(amenities);
+                await _context.CreateAmenities(amenities);
                 return RedirectToAction(nameof(Index));
             }
             return View(amenities);
@@ -94,7 +94,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var amenities = await _context.GetAmenitiesAsync(id);
+            var amenities = await _context.GetAmenitiesById(id);
             if (amenities == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Async_Inn.Controllers
             {
                 try
                 {
-                    await _context.UpdateAmenitiesAsync(amenities);
+                    await _context.UpdateAmenities(amenities);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -155,7 +155,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            await _context.DeleteAmenitiesAsync(id);
+            await _context.DeleteAmenities(id);
             return RedirectToAction("Index");
         }
 
@@ -169,13 +169,13 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _context.DeleteAmenitiesAsync(id);
+            await _context.DeleteAmenities(id);
             return RedirectToAction(nameof(Index));
         }
 
         private async Task<bool> AmenitiesExists(int id)
         {
-            Amenities amenities = await _context.GetAmenitiesAsync(id);
+            Amenities amenities = await _context.GetAmenitiesById(id);
             if(amenities != null)
             {
                 return true;
