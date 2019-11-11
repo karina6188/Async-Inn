@@ -8,21 +8,18 @@ namespace Async_Inn.Models.Interfaces
     public interface IRoomManager
     {        
         // Create
-        Task CreateRoomAsync(Room room);
+        Task CreateRoom(Room room);
 
         // Read
-        Task<Room> GetRoomAsync(int id);
+        Task<Room> GetRoomById(int id);
+        Task<List<Room>> GetRooms();
 
         // Update
-        Task UpdateRoomAsync(Room room);
+        Task UpdateRoom(Room room);
 
         // Delete
-        Task DeleteRoomAsync(int id);
+        Task DeleteRoom(int id);
 
-        Task<List<Room>> GetRoomsAsync();
-
-        IEnumerable<HotelRoom> GetHotelRoomsForHotel(int hotelID);
-
-        Task<List<RoomAmenities>> GetRoomAmenitiesForRoom(int roomID);
+        IEnumerable<RoomAmenities> GetRoomAmenitiesByRoom(int roomID);
     }
 }

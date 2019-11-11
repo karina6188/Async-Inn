@@ -45,7 +45,7 @@ namespace Async_Inn.Controllers
 
             RoomHotelVM rhvm = new RoomHotelVM();
 
-            rhvm.Hotel = await _hotels.GetHotelAsync(id);
+            rhvm.Hotel = await _hotels.GetHotelById(id);
             rhvm.HotelRoom = hotelRoom;
 
             return View(rhvm);
@@ -54,8 +54,8 @@ namespace Async_Inn.Controllers
         // GET: HotelRooms/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["HotelID"] = new SelectList(await _hotels.GetHotelsAsync(), "ID", "City");
-            ViewData["RoomID"] = new SelectList(await _rooms.GetRoomsAsync(), "ID", "Name");
+            ViewData["HotelID"] = new SelectList(await _hotels.GetHotels(), "ID", "City");
+            ViewData["RoomID"] = new SelectList(await _rooms.GetRooms(), "ID", "Name");
             return View();
         }
 
@@ -71,8 +71,8 @@ namespace Async_Inn.Controllers
                 _rooms.GetHotelRoomsForHotel(hotelRoom.HotelID);
                 return RedirectToAction(nameof(Index), "Rooms");
             }
-            ViewData["HotelID"] = new SelectList(await _hotels.GetHotelsAsync(), "ID", "City", hotelRoom.HotelID);
-            ViewData["RoomID"] = new SelectList(await _rooms.GetRoomsAsync(), "ID", "Name", hotelRoom.RoomID);
+            ViewData["HotelID"] = new SelectList(await _hotels.GetHotels(), "ID", "City", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(await _rooms.GetRooms(), "ID", "Name", hotelRoom.RoomID);
             return View(hotelRoom);
         }
 
@@ -84,7 +84,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            await _rooms.DeleteRoomAsync(id);
+            await _rooms.DeleteRoom(id);
 
             return RedirectToAction(nameof(Index), "Rooms", roomID);
         }
