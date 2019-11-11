@@ -11,6 +11,6 @@ namespace Async_Inn.Models.ViewModels
 
         public Hotel Hotel { get; set; }
 
-        public Room Room { get; set; }
+        public IEnumerable<Room> Room { get; set; }
     }
 }

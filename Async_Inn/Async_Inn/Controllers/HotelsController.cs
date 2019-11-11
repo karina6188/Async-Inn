@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Async_Inn.Data;
 using Async_Inn.Models;
 using Async_Inn.Models.Interfaces;
+using Async_Inn.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -47,11 +48,17 @@ namespace Async_Inn.Controllers
             }
 
             Hotel hotel = await _context.GetHotelById(id);
+            var hotelRooms = _context.GetHotelRooms(id);
+
+            RoomHotelVM rhvm = new RoomHotelVM();
+            rhvm.Hotel = hotel;
+            rhvm.HotelRoom = hotelRooms;
+
             if (hotel == null)
             {
                 return NotFound();
             }
-            return View(hotel);
+            return View(rhvm);
         }
 
         // GET: Hotels/Create
@@ -88,17 +95,23 @@ namespace Async_Inn.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Edit(int id)
         {
-            if (id == 0)
+            if (id <= 0)
             {
                 return NotFound();
             }
 
-            var hotel = await _context.GetHotelById(id);
+            Hotel hotel = await _context.GetHotelById(id);
+            var hotelRooms = _context.GetHotelRooms(id);
+
+            RoomHotelVM rhvm = new RoomHotelVM();
+            rhvm.Hotel = hotel;
+            rhvm.HotelRoom = hotelRooms;
+
             if (hotel == null)
             {
                 return NotFound();
             }
-            return View(hotel);
+            return View(rhvm);
         }
 
         // POST: Hotels/Edit/5
@@ -149,7 +162,7 @@ namespace Async_Inn.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
+            if (id <= 0)
             {
                 return NotFound();
             }
