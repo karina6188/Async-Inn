@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
+using Async_Inn.Models.Interfaces;
 
 namespace Async_Inn.Controllers
 {
@@ -17,22 +18,19 @@ namespace Async_Inn.Controllers
         /// </summary>
         private readonly AsyncDbContext _context;
 
-        public RoomAmenitiesController(AsyncDbContext context)
-        {
-            _context = context;
-        }
+        private readonly IRoomManager _rooms;
+        private readonly IAmenitiesManager _amenities;
 
-        // GET: RoomAmenities
-        public async Task<IActionResult> Index()
+        public RoomAmenitiesController(IRoomManager rooms, IAmenitiesManager amenities)
         {
-            var asyncDbContext = _context.RoomAmenities.Include(r => r.Amenities).Include(r => r.Room);
-            return View(await asyncDbContext.ToListAsync());
+            _rooms = rooms;
+            _amenities = amenities;
         }
 
         // GET: RoomAmenities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return NotFound();
             }
