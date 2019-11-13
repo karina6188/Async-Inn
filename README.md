@@ -53,3 +53,5 @@ App Execution
 1.10: Add dependency injections services for classes. - 2019 Nov 05
 
 1.11: Refactor controllers to implement dependency injections. - 2019 Nov 05
+
+1.12: Create new view models. - 2019 Nov 12
