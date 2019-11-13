@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
 using Async_Inn.Models.Interfaces;
+using Async_Inn.Models.ViewModels;
 
 namespace Async_Inn.Controllers
 {
@@ -41,18 +42,22 @@ namespace Async_Inn.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Details(int id)
         {
-            if (id == 0)
+            if (id <= 0)
             {
                 return NotFound();
             }
 
-            var room = await _context.GetRoomById(id);
+            Room room = await _context.GetRoomById(id);
+            var roomAmenities = _context.GetRoomAmenitiesByRoom(id);
+            RoomAmenitiesVM ravm = new RoomAmenitiesVM();
+            ravm.Room = room;
+            ravm.RoomAmenities = roomAmenities;
+
             if (room == null)
             {
                 return NotFound();
             }
-
-            return View(room);
+            return View(ravm);
         }
 
         // GET: Rooms/Create
@@ -89,12 +94,17 @@ namespace Async_Inn.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Edit(int id)
         {
-            if (id == 0)
+            if (id <= 0)
             {
                 return NotFound();
             }
 
-            var room = await _context.GetRoomById(id);
+            Room room = await _context.GetRoomById(id);
+            var roomAmenities = _context.GetRoomAmenitiesByRoom(id);
+            RoomAmenitiesVM ravm = new RoomAmenitiesVM();
+            ravm.Room = room;
+            ravm.RoomAmenities = roomAmenities;
+
             if (room == null)
             {
                 return NotFound();
@@ -150,7 +160,7 @@ namespace Async_Inn.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
+            if (id <= 0)
             {
                 return NotFound();
             }

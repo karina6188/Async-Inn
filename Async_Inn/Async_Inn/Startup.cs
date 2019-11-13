@@ -41,6 +41,7 @@ namespace Async_Inn
             services.AddDbContext<AsyncDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
 
+            //Register Dependency Injection
             services.AddScoped<IHotelManager, HotelService>();
             services.AddScoped<IRoomManager, RoomService>();
             services.AddScoped<IAmenitiesManager, AmenitiesService>();

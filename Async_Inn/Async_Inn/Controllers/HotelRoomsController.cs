@@ -26,29 +26,16 @@ namespace Async_Inn.Controllers
             _rooms = rooms;
         }
 
-        // GET: HotelRooms
-        //public async Task<IActionResult> Index()
-        //{
-        //    var asyncDbContext = _hotels.HotelRooms.Include(r => r.Amenities).Include(r => r.Room);
-        //    return View(await asyncDbContext.ToListAsync());
-        //}
-
         // GET: HotelRooms/Details/5
-        public async Task<IActionResult> HotelDetailsAsync(int id)
+        public IActionResult Details(int id)
         {
-            var hotelRoom = _hotels.GetHotelRoomsForHotel(id);
-
-            if (hotelRoom == null)
+            if (id <= 0)
             {
                 return NotFound();
             }
 
-            RoomHotelVM rhvm = new RoomHotelVM();
-
-            rhvm.Hotel = await _hotels.GetHotelById(id);
-            rhvm.HotelRoom = hotelRoom;
-
-            return View(rhvm);
+            var hotelRooms = _hotels.GetHotelRooms(id);
+            return View(hotelRooms);
         }
 
         // GET: HotelRooms/Create
@@ -68,8 +55,8 @@ namespace Async_Inn.Controllers
         {
             if (ModelState.IsValid)
             {
-                _rooms.GetHotelRoomsForHotel(hotelRoom.HotelID);
-                return RedirectToAction(nameof(Index), "Rooms");
+                await _hotels.AddRoomsToHotel(hotelRoom);
+                return RedirectToAction(nameof(Index), "Hotels");
             }
             ViewData["HotelID"] = new SelectList(await _hotels.GetHotels(), "ID", "City", hotelRoom.HotelID);
             ViewData["RoomID"] = new SelectList(await _rooms.GetRooms(), "ID", "Name", hotelRoom.RoomID);
@@ -84,9 +71,9 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            await _rooms.DeleteRoom(id);
+            await _hotels.DeleteRoomsFromHotel(id, roomID);
 
-            return RedirectToAction(nameof(Index), "Rooms", roomID);
+            return RedirectToAction(nameof(Index), "Hotels", roomID);
         }
     }
 }
