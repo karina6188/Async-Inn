@@ -10,5 +10,7 @@ namespace Async_Inn.Models.ViewModels
         public Room Room { get; set; }
 
         public IEnumerable<RoomAmenities> RoomAmenities { get; set; }
+
+        public IEnumerable<Amenities> Amenities { get; set; }
     }
 }

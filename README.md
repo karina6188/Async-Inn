@@ -50,6 +50,6 @@ App Execution
 
 1.9: Add interfaces for classes to implement dependency injections. - 2019 Nov 05
 
-1.10: Add dependency injections managers for classes. - 2019 Nov 05
+1.10: Add dependency injections services for classes. - 2019 Nov 05
 
 1.11: Refactor controllers to implement dependency injections. - 2019 Nov 05
