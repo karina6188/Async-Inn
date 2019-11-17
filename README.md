@@ -27,8 +27,23 @@ Open the program using Visual Studio and click "Start" button to run this progra
 
 ## Visuals
 
-App Execution
+Home Page
+![Alt execution capture](/captures/app_home.JPG)
 
+Hotels
+![Alt execution capture](/captures/app_hotel.JPG)
+
+Hotel Rooms
+![Alt execution capture](/captures/app_hotel_room.JPG)
+
+Rooms
+![Alt execution capture](/captures/app_room.JPG)
+
+Room Amenities
+![Alt execution capture](/captures/app_room_amenity.JPG)
+
+Amenities
+![Alt execution capture](/captures/app_amenity.JPG)
 
 ## Change Log
 
@@ -55,3 +70,7 @@ App Execution
 1.11: Refactor controllers to implement dependency injections. - 2019 Nov 05
 
 1.12: Create new view models. - 2019 Nov 12
+
+1.13: Add CSS layout to have a consistant design throughout the web app. - 2019 Nov 13
+
+1.14: Debug and add unit testing. Pass all the tests. - 2019 Nov 16
