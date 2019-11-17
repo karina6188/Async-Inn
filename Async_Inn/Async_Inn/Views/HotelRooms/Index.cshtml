@@ -47,9 +47,9 @@
                         @Html.DisplayFor(modelItem => item.PetFriendly)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        <a class="links" asp-action="Edit">Edit</a>
+                        <a class="links" asp-action="Details">Details</a>
+                        <a class="links" asp-action="Delete">Delete</a>
                     </td>
                 </tr>
             }
