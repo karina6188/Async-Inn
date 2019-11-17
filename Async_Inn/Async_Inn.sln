@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async_Inn", "Async_Inn\Async_Inn.csproj", "{C09EE34E-1DFC-4E57-A61C-3049ED59AE73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Async_Inn", "Async_Inn\Async_Inn.csproj", "{C09EE34E-1DFC-4E57-A61C-3049ED59AE73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncInnTests", "AsyncInnTests\AsyncInnTests.csproj", "{BA8400CF-512E-4578-9FD2-3E48ED151F8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C09EE34E-1DFC-4E57-A61C-3049ED59AE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09EE34E-1DFC-4E57-A61C-3049ED59AE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09EE34E-1DFC-4E57-A61C-3049ED59AE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8400CF-512E-4578-9FD2-3E48ED151F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8400CF-512E-4578-9FD2-3E48ED151F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8400CF-512E-4578-9FD2-3E48ED151F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8400CF-512E-4578-9FD2-3E48ED151F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
