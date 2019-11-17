@@ -1,4 +1,6 @@
+using Async_Inn.Data;
 using Async_Inn.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using Xunit;
 
@@ -27,49 +29,61 @@ namespace AsyncInnTests
             Hotel hotel = new Hotel();
             hotel.Name = "Four Season";
 
-            Assert.Equal("BFour Season", hotel.Name);
+            Assert.Equal("Four Season", hotel.Name);
         }
 
         [Fact]
-        public void CanGetCoursePrice()
+        public void CanGetRoomInfo()
         {
-            Course course = new Course()
+            Room room = new Room()
             {
-                CourseCode = "my-course-code",
-                Price = 10m,
-                Technology = Technology.Java
+                Name = "Sunset at Puget Sound",
+                Layout = Layout.OneBedroom,
             };
-
-            Assert.Equal(10m, course.Price);
-
+            Assert.Equal("Sunset at Puget Sound", room.Name);
         }
 
+        [Fact]
+        public void CanGetAmenityInfo()
+        {
+            Amenities amenity = new Amenities();
+            amenity.Name = "Hair Dryer";
+
+            Assert.Equal("Hair Dryer", amenity.Name);
+        }
 
         [Fact]
-        public async void SaveStudentInDb()
+        public void CanChangeAmenityInfo()
+        {
+            Amenities amenity = new Amenities();
+            amenity.Name = "Safe";
+
+            Assert.Equal("Safe", amenity.Name);
+        }
+
+        [Fact]
+        public async void SaveRoomInDb()
         {
             // Arrange
 
-            DbContextOptions<SchoolDbContext> options = new DbContextOptionsBuilder<SchoolDbContext>()
-                .UseInMemoryDatabase("SavingStudentInDb")
+            DbContextOptions<AsyncDbContext> options = new DbContextOptionsBuilder<AsyncDbContext>()
+                .UseInMemoryDatabase("SaveRoomInDb")
                 .Options;
 
             // Act
 
-            using (SchoolDbContext context = new SchoolDbContext(options))
+            using (AsyncDbContext context = new AsyncDbContext(options))
             {
-                Course course = new Course();
-                course.CourseCode = "Amanda's Super Cool Course";
-                course.Technology = Technology.DotNet;
-                course.Price = 1000m;
+                Room room = new Room();
+                room.Name = "Cloud Inn";
+                room.Layout = Layout.Studio;
 
-                context.Courses.Add(course);
+                context.Room.Add(room);
                 await context.SaveChangesAsync();
 
-                Course result = await context.Courses.FirstOrDefaultAsync(x => x.CourseCode == course.CourseCode);
+                Room result = await context.Room.FirstOrDefaultAsync(x => x.Name == room.Name);
 
-                Assert.Equal(1000m, result.Price);
-
+                Assert.Equal("Cloud Inn", result.Name);
             }
         }
     }
