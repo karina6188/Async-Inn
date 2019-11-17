@@ -27,8 +27,23 @@ Open the program using Visual Studio and click "Start" button to run this progra
 
 ## Visuals
 
-App Execution
+Home Page
+![Alt execution capture](/captures/app_home.JPG)
 
+Hotels
+![Alt execution capture](/captures/app_hotel.JPG)
+
+Hotel Rooms
+![Alt execution capture](/captures/app_hotel_room.JPG)
+
+Rooms
+![Alt execution capture](/captures/app_room.JPG)
+
+Room Amenities
+![Alt execution capture](/captures/app_room_amenity.JPG)
+
+Amenities
+![Alt execution capture](/captures/app_amenity.JPG)
 
 ## Change Log
 
