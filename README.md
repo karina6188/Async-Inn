@@ -55,3 +55,7 @@ App Execution
 1.11: Refactor controllers to implement dependency injections. - 2019 Nov 05
 
 1.12: Create new view models. - 2019 Nov 12
+
+1.13: Add CSS layout to have a consistant design throughout the web app. - 2019 Nov 13
+
+1.14: Debug and add unit testing. Pass all the tests. - 2019 Nov 16
